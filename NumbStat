@@ -1,0 +1,51 @@
+
+import java.util.Scanner;
+
+public class KonekoeTehtava1 {
+
+    public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
+        System.out.println("Syötä lukuja, 0 lopettaa");
+
+        int sum = 0;
+        int index = 0;
+        int largest = 0;
+        int smallest = Integer.MAX_VALUE;
+        double keskiarvo = 0;
+
+        while (true) {
+
+            int input = lukija.nextInt();
+            if (input == 0) {
+                if (index == 0) {
+                    System.out.println("Minimin, maksimin ja keskiarvon selvittäminen ei ole mahdollista.");
+                }
+                break;
+            }
+            if (input > largest) {
+                largest = input;
+            }
+            if (input < smallest) {
+                if (input == 0) {
+                    if (index == 0) {
+                        System.out.println("Minimin, maksimin ja keskiarvon selvittäminen ei ole mahdollista.");
+                    }
+                    break;
+                }
+                smallest = input;
+            }
+
+            sum = sum + input;
+            index++;
+            keskiarvo = (sum * 1.0) / index;
+
+        }
+        if (!(index == 0)) {
+            System.out.println("Minimi: " + smallest);
+            System.out.println("Maksimi: " + largest);
+            System.out.println("Keskiarvo: " + keskiarvo);
+
+        }
+
+    }
+}
